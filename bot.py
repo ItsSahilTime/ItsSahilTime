@@ -43,8 +43,8 @@ async def batch(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 # APP
-"8771929884:AAGx1OITXVv_-kqZpL5-AVn1rHvK8kyia8c"
-app = ApplicationBuilder().token().build()
+
+app = ApplicationBuilder().token("8771929884:AAGx1OITXVv_-kqZpL5-AVn1rHvK8kyia8c").build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("about", about))
