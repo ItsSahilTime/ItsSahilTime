@@ -6,7 +6,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [InlineKeyboardButton("About ℹ️", callback_data="about")],
         [InlineKeyboardButton("Help 📖", callback_data="help")],
-        [InlineKeyboardButton("Thanks ❤️", callback_data="thanks")]
+        [InlineKeyboardButton("Thanks ❤️", callback_data="thanks")],
+        [InlineKeyboardButton("All paid Batch Avliable ❤️", callback_data="All paid Batch Avliable")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -26,12 +27,19 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == "thanks":
         await query.edit_message_text("Thank you—that was my duty 😎")
 
+   elif query.data == "all_batch":
+    await query.edit_message_text("👉 All Paid Batches Link:\nhttps://t.me/+TaRk_JVdzmIyMTY9")
+
 # COMMANDS
 async def about(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("This is my own Bot 😎")
 
 async def thanks(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Thank you—that was my duty 😎")
+
+async def batch(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "📚 All Paid Batches:\n\n👉 https://t.me/+TaRk_JVdzmIyMTY9")
 
 # APP
 app = ApplicationBuilder().token("8771929884:AAGx1OITXVv_-kqZpL5-AVn1rHvK8kyia8c").build()
@@ -40,5 +48,6 @@ app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("about", about))
 app.add_handler(CommandHandler("thanks", thanks))
 app.add_handler(CallbackQueryHandler(button_handler))
+app.add_handler(CommandHandler("batch", batch))
 
 app.run_polling()
