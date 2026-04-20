@@ -13,7 +13,7 @@ async def about(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def thanks(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Thank you—that was my duty. 😎")
 
-app = ApplicationBuilder().token(8771929884:AAGx1OITXVv_-kqZpL5-AVn1rHvK8kyia8c).build()
+app = ApplicationBuilder().token("8771929884:AAGx1OITXVv_-kqZpL5-AVn1rHvK8kyia8c").build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("about", about))
 app.add_handler(CommandHandler("thanks", thanks))
